@@ -15,7 +15,8 @@ yum remove expect -y
 rpm -Uvh ./packages/expect-5.45-14.el7_1.x86_64.rpm 
 
 # 读取配置文件
-while read -r line
+cat ./config | while read line
 do
- echo $line
-done < ./config
+	echo ${line}
+
+done
