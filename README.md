@@ -12,3 +12,4 @@ expect                                            #  expect脚本
 
 ssh_auto_login.sh                              #执行的bash shell脚本
 ## 使用示例
+ <img src="https://github.com/dxdbl/ssh_auto_login/blob/master/images/ssh_auto_login.png" width = "300" height = "200" alt="image" align=center />
