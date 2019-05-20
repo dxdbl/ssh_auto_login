@@ -18,6 +18,9 @@ yum -y install openssh-clients
 rm -rf /root/.ssh/id_rsa*
 ssh-keygen -f /root/.ssh/id_rsa -t rsa -N ''
 
+# 修改expect脚本权限
+chmod +x ./expect
+
 # 读取配置文件,分发公钥
 cat ./config | while read line
 do
