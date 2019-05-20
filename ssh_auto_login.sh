@@ -7,16 +7,23 @@
 #
 # $ git clone https://github.com/dxdbl/ssh_auto_login.git
 # $ 
-# $ 
+# $ Are you sure you want to continue connecting (yes/no)?
 #
+#
+# 安装相关组件 
+yum -y install expect 
+yum -y install openssh-clients
 
-# 安装 expect 组件
-yum remove expect -y
-rpm -Uvh ./packages/expect-5.45-14.el7_1.x86_64.rpm 
+# 生成密钥(如有旧密钥,先清除)
+rm -rf /root/.ssh/id_rsa*
+ssh-keygen -f /root/.ssh/id_rsa -t rsa -N ''
 
-# 读取配置文件
+# 读取配置文件,分发公钥
 cat ./config | while read line
 do
 	echo ${line}
+	ip_addr=`echo $line |awk '{print $1}'` 
+	user=`echo $line |awk '{print $2}'`
+	password=`echo $line |awk '{print $3}'`
 
 done
