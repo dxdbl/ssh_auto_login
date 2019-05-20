@@ -25,5 +25,5 @@ do
 	ip_addr=`echo $line |awk '{print $1}'` 
 	user=`echo $line |awk '{print $2}'`
 	password=`echo $line |awk '{print $3}'`
-
+	./expect $ip_addr $user $password
 done
