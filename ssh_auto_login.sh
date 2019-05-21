@@ -26,7 +26,10 @@ cat ./config | while read line
 do
 	echo ${line}
 	ip_addr=`echo $line |awk '{print $1}'` 
-	user=`echo $line |awk '{print $2}'`
-	password=`echo $line |awk '{print $3}'`
-	./expect $ip_addr $user $password
+	ip_addr=`echo $line |awk '{print $2}'` 
+	user=`echo $line |awk '{print $3}'`
+	password=`echo $line |awk '{print $4}'`
+	./expect $ip_addr $hostname $user $password
 done
+
+
