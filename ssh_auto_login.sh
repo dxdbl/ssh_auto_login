@@ -19,17 +19,17 @@ rm -rf /root/.ssh/id_rsa*
 ssh-keygen -f /root/.ssh/id_rsa -t rsa -N ''
 
 # 修改expect脚本权限
-chmod +x ./expect
+chmod +x ./ssh_copy_id.expect
 
 # 读取配置文件,分发公钥
-cat ./config | while read line
+cat ./host.conf | while read line
 do
 	echo ${line}
 	ip_addr=`echo $line |awk '{print $1}'` 
-	ip_addr=`echo $line |awk '{print $2}'` 
+	hostname=`echo $line |awk '{print $2}'` 
 	user=`echo $line |awk '{print $3}'`
 	password=`echo $line |awk '{print $4}'`
-	./expect $ip_addr $hostname $user $password
+	./ssh_copy_id.expect $ip_addr $hostname $user $password
 done
 
 
