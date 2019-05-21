@@ -17,3 +17,5 @@ ssh_auto_login.sh                              #执行的bash shell脚本
 2. 直接运行 ssh_auto_login.sh 脚本
 
  <img src="https://github.com/dxdbl/ssh_auto_login/blob/master/images/ssh_auto_login.png" width = "600" height = "400" alt="image" align=center />
+ 
+ 
